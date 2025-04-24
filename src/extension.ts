@@ -8,8 +8,14 @@ export function activate(context: vscode.ExtensionContext) {
       return;
     }
 
-    const text = editor.document.getText();
-    const html = convertChordProToHTML(text);
+    const updatePreview = () => {
+      if (!editor || !panel) {
+        return;
+      }
+      const text = editor.document.getText();
+      const html = convertChordProToHTML(text);
+      panel.webview.html = html;
+    };
 
     const panel = vscode.window.createWebviewPanel(
       'chordproPreview',
@@ -18,7 +24,17 @@ export function activate(context: vscode.ExtensionContext) {
       {}
     );
 
-    panel.webview.html = html;
+    updatePreview();
+
+    const documentChangeDisposable = vscode.workspace.onDidChangeTextDocument(event => {
+      if (event.document === editor.document) {
+        updatePreview();
+      }
+    });
+
+    context.subscriptions.push(documentChangeDisposable);
+
+    // panel.webview.html = html;
   });
 
   context.subscriptions.push(disposable);
