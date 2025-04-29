@@ -62,6 +62,7 @@ function convertChordProToHTML(text: string): string {
       display: flex;
       align-items: flex-end;
       flex-wrap: wrap;
+      font-size: 1.3em;
   }
 
   .chord-lyrics {
@@ -75,8 +76,9 @@ function convertChordProToHTML(text: string): string {
   }
 
   .chord {
-      font-weight: bold;
-      color: var(--vscode-editorError-foreground); 
+      font-weight: 500;
+      color: var(--vscode-editorError-foreground);
+      color: #5D978D; 
   }
 
   .chord-lyrics:last-child .chord {
