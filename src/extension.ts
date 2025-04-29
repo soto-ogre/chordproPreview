@@ -58,6 +58,9 @@ function convertChordProToHTML(text: string): string {
 <head>
   <meta charset="UTF-8">
   <style>
+  body {
+    padding-block: 2rem 6rem;
+  }
   .lyrics-line {
       display: flex;
       align-items: flex-end;
