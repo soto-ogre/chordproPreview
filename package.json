@@ -16,9 +16,33 @@
     "commands": [
       {
         "command": "chordproPreview.showPreview",
-        "title": "Show ChordPro Preview"
+        "title": "ChordProプレビュー",
+        "category": "ChordPro",
+        "icon": "$(open-preview)"
       }
-    ]
+    ],
+    "languages": [
+      {
+        "id": "chordpro",
+        "aliases": [
+          "ChordPro",
+          "chordpro"
+        ],
+        "extensions": [
+          ".chordpro"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "chordproPreview.showPreview",
+          "when": "resourceExtname == .chordpro",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run compile",
