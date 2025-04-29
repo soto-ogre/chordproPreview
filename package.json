@@ -1,5 +1,5 @@
 {
-  "name": "chordproPreview",
+  "name": "chordpropreview",
   "displayName": "chordpro-preview",
   "description": "Preview ChordPro formatted songs",
   "version": "0.0.3",
@@ -10,7 +10,6 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:chordproPreview.showPreview"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -27,7 +26,8 @@
     "watch": "tsc -watch -p ./",
     "pretest": "yarn run compile && yarn run lint",
     "lint": "eslint src",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "package": "vsce package"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.10",
@@ -39,5 +39,8 @@
     "@vscode/test-electron": "^2.4.1",
     "eslint": "^9.23.0",
     "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "chordproject-parser": "^0.2.14"
   }
 }
